@@ -29,12 +29,14 @@ class LivestockOnMarket(models.Model):
     goats = models.IntegerField(default=0)
     sheeps = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.farmer.email
 
-# class PutLivestockOnMarket(models.Model):
 
-
-# class SaleHistory(models.Model):
-#     seller_farmer = models.ForeignKey(Farmers, on_delete=models.PROTECT)
-#     cows = models.IntegerField(default=0)
-#     goats = models.IntegerField(default=0)
-#     sheeps = models.IntegerField(default=0)
+class SalePurchaseHistory(models.Model):
+    market_id = models.IntegerField(default=False)
+    seller_farmer_id = models.IntegerField(default=False)
+    customer_farmer_id = models.IntegerField(default=False)
+    cows = models.IntegerField(default=0)
+    goats = models.IntegerField(default=0)
+    sheeps = models.IntegerField(default=0)
